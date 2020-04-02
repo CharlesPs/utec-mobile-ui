@@ -12,7 +12,7 @@ import styles from './Button.styles'
 
 class Button extends React.Component {
 
-    construct(props) {
+    constructor(props) {
         super(props)
     }
 
