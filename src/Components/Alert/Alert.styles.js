@@ -6,7 +6,7 @@ import {
 
 import { Colors } from '../../Resources/Constants/Colors'
 import { Metrics } from '../../Resources/Constants/Metrics'
-import { Fonts } from '../../Resources/Constants/Fonts'
+// import { Fonts } from '../../Resources/Constants/Fonts'
 
 const styles = StyleSheet.create({
     modal: {
@@ -46,8 +46,8 @@ const styles = StyleSheet.create({
         marginRight: 10,
     },
     alertTextStyle: {
-        fontFamily: Fonts.semibold,
-        fontSize: 14,
+        // fontFamily: Fonts.semibold,
+        // fontSize: 14,
         color: '#323232',
         height:  Platform.OS === "ios" ? 'auto' : '100%',
         textAlignVertical: 'center',
@@ -59,8 +59,8 @@ const styles = StyleSheet.create({
     },
     btnTextText: {
         color: '#808080',
-        fontFamily: Fonts.regular,
-        fontSize: 12,
+        // fontFamily: Fonts.regular,
+        // fontSize: 12,
         marginRight: 15,
         textAlignVertical: 'center',
     },
@@ -73,13 +73,13 @@ const styles = StyleSheet.create({
     },
     btnPrimaryText: {
         color: '#fff',
-        fontFamily: Fonts.semibold,
-        fontSize: 12,
+        // fontFamily: Fonts.semibold,
+        // fontSize: 12,
         textAlign: 'center',
     },
     errorInfo: {
-        fontFamily: Fonts.semibold,
-        fontSize: 10,
+        // fontFamily: Fonts.semibold,
+        // fontSize: 10,
     }
 })
 

@@ -14,7 +14,7 @@ import styles from './Alert.styles'
 
 class Alert extends React.Component {
 
-    static alertInstance
+    static myInstance
 
     constructor(props) {
         super(props)
@@ -26,17 +26,17 @@ class Alert extends React.Component {
             buttons: []
         }
 
-        Alert.alertInstance = this
+        Alert.myInstance = this
     }
 
     static show(message, type, buttons = []) {
 
-        this.alertInstance._show(message, type, buttons)
+        this.myInstance._show(message, type, buttons)
     }
 
     static close() {
 
-        this.alertInstance._close()
+        this.myInstance._close()
     }
 
     getBgStyle(type) {
