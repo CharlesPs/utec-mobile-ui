@@ -183,3 +183,5 @@ class Alert extends React.Component {
         )
     }
 }
+
+export default Alert
