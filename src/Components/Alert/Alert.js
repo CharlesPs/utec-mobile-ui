@@ -29,28 +29,6 @@ class Alert extends React.Component {
         Alert.alertInstance = this
     }
 
-    _show(message, type, buttons) {
-
-        if (!buttons.length) {
-
-            buttons = this.addCloseDefaultButton()
-        }
-
-        this.setState({
-            message,
-            type,
-            buttons,
-            visible: true,
-        })
-    }
-
-    _close() {
-
-        this.setState({
-            visible: false
-        })
-    }
-
     static show(message, type, buttons = []) {
 
         this.alertInstance._show(message, type, buttons)
@@ -116,6 +94,28 @@ class Alert extends React.Component {
         })
 
         return buttons
+    }
+
+    _show(message, type, buttons) {
+
+        if (!buttons.length) {
+
+            buttons = this.addCloseDefaultButton()
+        }
+
+        this.setState({
+            message,
+            type,
+            buttons,
+            visible: true,
+        })
+    }
+
+    _close() {
+
+        this.setState({
+            visible: false
+        })
     }
 
     render() {
