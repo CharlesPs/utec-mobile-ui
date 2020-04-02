@@ -1,6 +1,6 @@
 {
   "name": "utec-mobile-ui",
-  "version": "1.1.0",
+  "version": "0.2.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "prop-types": "^15.7.2",
-    "react-native": "^0.62.0"
+    "react-native": "^0.62.0",
+    "react-native-picker-select": "^6.6.0"
   }
 }
