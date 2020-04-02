@@ -17,7 +17,7 @@ const rnPickerStylesDefault = StyleSheet.create({
     },
     inputAndroid: {
         fontSize: 10,
-        fontFamily: Fonts.regular,
+        // fontFamily: Fonts.regular,
         paddingVertical: 5,
         paddingRight: 30,
         paddingLeft: 10,
@@ -29,7 +29,7 @@ const rnPickerStylesDefault = StyleSheet.create({
     },
     inputIOS: {
         fontSize: 10,
-        fontFamily: Fonts.regular,
+        // fontFamily: Fonts.regular,
         paddingVertical: 5,
         paddingRight: 30,
         paddingLeft: 10,
@@ -53,7 +53,7 @@ const rnPickerStylesDefault = StyleSheet.create({
 const rnPickerStylesPrimary = StyleSheet.create({
     inputAndroid: {
         fontSize: 10,
-        fontFamily: Fonts.regular,
+        // fontFamily: Fonts.regular,
         paddingVertical: 5,
         paddingRight: 30,
         paddingLeft: 10,
@@ -65,7 +65,7 @@ const rnPickerStylesPrimary = StyleSheet.create({
     },
     inputIOS: {
         fontSize: 10,
-        fontFamily: Fonts.regular,
+        // fontFamily: Fonts.regular,
         paddingVertical: 5,
         paddingRight: 30,
         paddingLeft: 10,
@@ -95,7 +95,7 @@ const rnPickerStylesSecondary = StyleSheet.create({
     },
     inputAndroid: {
         fontSize: 10,
-        fontFamily: Fonts.regular,
+        // fontFamily: Fonts.regular,
         paddingVertical: 5,
         paddingRight: 30,
         paddingLeft: 10,
@@ -107,7 +107,7 @@ const rnPickerStylesSecondary = StyleSheet.create({
     },
     inputIOS: {
         fontSize: 10,
-        fontFamily: Fonts.regular,
+        // fontFamily: Fonts.regular,
         paddingVertical: 5,
         paddingRight: 30,
         paddingLeft: 10,
@@ -138,7 +138,7 @@ const rnPickerStylesSecondaryBig = StyleSheet.create({
     inputAndroid: {
         height: 40,
         fontSize: 10,
-        fontFamily: Fonts.regular,
+        // fontFamily: Fonts.regular,
         paddingVertical: 10,
         paddingRight: 30,
         paddingLeft: 10,
@@ -150,7 +150,7 @@ const rnPickerStylesSecondaryBig = StyleSheet.create({
     },
     inputIOS: {
         fontSize: 10,
-        fontFamily: Fonts.regular,
+        // fontFamily: Fonts.regular,
         paddingVertical: 10,
         paddingRight: 30,
         paddingLeft: 10,
@@ -182,7 +182,7 @@ const rnPickerStylesSimple = StyleSheet.create({
     },
     inputAndroid: {
         fontSize: 10,
-        fontFamily: Fonts.regular,
+        // fontFamily: Fonts.regular,
         paddingVertical: 5,
         paddingRight: 30,
         paddingLeft: 10,
@@ -192,7 +192,7 @@ const rnPickerStylesSimple = StyleSheet.create({
     },
     inputIOS: {
         fontSize: 10,
-        fontFamily: Fonts.regular,
+        // fontFamily: Fonts.regular,
         paddingVertical: 5,
         paddingRight: 30,
         paddingLeft: 10,
@@ -231,7 +231,7 @@ const newAndroidPickerAlpha = StyleSheet.create({
         color: "#000",
         height: "100%",
         textAlignVertical: "center",
-        fontFamily: Fonts.regular,
+        // fontFamily: Fonts.regular,
         fontSize: 9
     },
     inputIOS: {},
@@ -277,7 +277,7 @@ const newAndroidPickerAlpha2 = StyleSheet.create({
         color: "#000",
         height: "100%",
         textAlignVertical: "center",
-        fontFamily: Fonts.regular,
+        // fontFamily: Fonts.regular,
         fontSize: 9
     },
     inputIOS: {},
@@ -323,7 +323,7 @@ const newAndroidPickerAlpha3 = StyleSheet.create({
         color: "#000",
         height: "100%",
         textAlignVertical: "center",
-        fontFamily: Fonts.regular,
+        // fontFamily: Fonts.regular,
         fontSize: 9
     },
     inputIOS: {},
