@@ -1,0 +1,16 @@
+{
+  "name": "utec-mobile-ui",
+  "version": "1.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Carlos Aguinaga <andres.aguinaga@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "prop-types": "^15.7.2",
+    "react-native": "^0.62.0"
+  }
+}
