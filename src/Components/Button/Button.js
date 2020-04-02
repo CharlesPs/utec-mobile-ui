@@ -28,7 +28,7 @@ class Button extends React.Component {
             disabled,
             type,
             shadow,
-        } = props
+        } = this.props
     
         let newType = type === undefined || type === "" ? "self" : type; 
         let newBtnStyles, newBtnTextStyles =  {}  
