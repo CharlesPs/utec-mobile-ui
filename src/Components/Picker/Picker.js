@@ -63,16 +63,26 @@ class Picker extends React.Component {
 
         const defaults = {
             selected: '',
-            ios: {
+            placeholder: {
+                label: 'Seleccionar',
+                value: null,
+                color: 'transparent',
+            },
+            android: {
                 useNativeAndroidPickerStyle: false,
-                placeholder: {
-                    label: 'Seleccionar',
-                    value: null,
-                    color: 'transparent',
-                },
+            },
+            ios: {
                 doneText: 'Terminar'
             },
-            onItemSelected: (value) => console.log('onItemSelected', value)
+            onItemSelected: (value) => {
+
+                console.log('onItemSelected', value)
+
+                if (typeof this.props.onItemSelected !== undefined) {
+
+                    this.props.onItemSelected(value)
+                }
+            }
         }
 
         const options = Object.assign(defaults, this.props.options)
@@ -90,7 +100,6 @@ class Picker extends React.Component {
                                 <RNPickerSelect
                                     pickerProps={options.pickerProps}
                                     onValueChange={value => this.options.onItemSelected(value)}
-                                    useNativeAndroidPickerStyle={options.ios.useNativeAndroidPickerStyle}
                                     items={items}
                                     itemKey={options.selected}
                                     Icon={() => {
