@@ -37,7 +37,7 @@ class Picker extends React.Component {
         this._picker = React.createRef()
     }
 
-    getStyles(type) {
+    getStyles(type = 'default') {
 
         switch(type) {
             case 'primary':
@@ -54,8 +54,16 @@ class Picker extends React.Component {
                 return newAndroidPickerAlpha2
             case 'android-blueborder':
                 return newAndroidPickerAlpha3
-            default:
+            case 'default':
                 return rnPickerStylesDefault
+        }
+    }
+
+    onItemSelected(value) {
+
+        if (typeof this.props.onItemSelected !== undefined) {
+
+            this.props.onItemSelected(value)
         }
     }
 
@@ -74,22 +82,13 @@ class Picker extends React.Component {
             ios: {
                 doneText: 'Terminar'
             },
-            onItemSelected: (value) => {
-
-                console.log('onItemSelected', value)
-
-                if (typeof this.props.onItemSelected !== undefined) {
-
-                    this.props.onItemSelected(value)
-                }
-            }
         }
 
         const options = Object.assign(defaults, this.props.options)
 
         const items = this.props.items || []
 
-        const pickerStyles = this.getStyles(options.type)
+        const pickerStyles = this.getStyles(this.props.type)
 
         return(
             <>
@@ -99,7 +98,7 @@ class Picker extends React.Component {
                             <>
                                 <RNPickerSelect
                                     pickerProps={options.pickerProps}
-                                    onValueChange={value => this.options.onItemSelected(value)}
+                                    onValueChange={value => this.onItemSelected(value)}
                                     items={items}
                                     itemKey={options.selected}
                                     Icon={() => {
