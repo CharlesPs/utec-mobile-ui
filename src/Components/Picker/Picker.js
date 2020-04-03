@@ -4,11 +4,11 @@ import React from 'react'
 import {
     View,
     Text,
+    Picker as NativePicker,
     Platform,
 } from 'react-native'
 
 import RNPickerSelect from 'react-native-picker-select'
-import {Picker as NativePicker} from '@react-native-community/picker'
 
 import {
     rnPickerStylesDefault,
