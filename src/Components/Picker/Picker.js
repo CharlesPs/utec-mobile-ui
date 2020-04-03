@@ -86,6 +86,8 @@ class Picker extends React.Component {
 
         const options = Object.assign(defaults, this.props.options)
 
+        console.log('options', options)
+
         const items = this.props.items || []
 
         const pickerStyles = this.getStyles(this.props.type)
