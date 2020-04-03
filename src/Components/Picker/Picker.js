@@ -27,14 +27,79 @@ class Picker extends React.Component {
         super(props)
 
         this.state = {
-            selected: {
-                index: 0,
-                label: '',
-                value: ''
-            }
+            selected: undefined,
+            androidSelected: undefined,
+            items: [],
+            placeholder: {}
         }
 
         this._picker = React.createRef()
+    }
+
+    componentDidMount() {
+
+        this.getPlaceholder()
+    }
+
+    getPlaceholder() {
+        
+        if (!this.props.placeholder) {
+
+            this.setState({
+                selected: 0
+            }, this.getItems())
+
+        } else {
+
+            const placeholder = {
+                key: 0,
+                label: this.props.placeholder,
+                value: '',
+            }
+
+            this.setState({
+                selected: 0,
+                placeholder,
+            }, this.getItems)
+        }
+    }
+
+    getItems() {
+
+        const addWhenPlaceholder = this.props.placeholder ?  1 : 0
+
+        const items = []
+
+        if (Platform.OS === 'android' && this.state.selected !== undefined) {
+
+            items.push(this.state.placeholder)
+        }
+
+        this.props.items.map((item, i) => {
+
+            item.key = (i + addWhenPlaceholder)
+
+            items.push(item)
+        })
+
+        this.setState({
+            items
+        }, this.autoSelectFirst)
+    }
+
+    autoSelectFirst() {
+
+        if (this.props.placeholder) {
+
+            return this.onItemSelected(undefined)
+        }
+
+        const {
+            items,
+            selected,
+        } = this.state
+
+        this.onItemSelected(items[selected].value)
     }
 
     getStyles(type = 'default') {
@@ -59,7 +124,11 @@ class Picker extends React.Component {
         }
     }
 
-    onItemSelected(value) {
+    onItemSelected(_value) {
+
+        const value = _value || undefined
+
+        console.log('value', value)
 
         if (typeof this.props.onItemSelected !== undefined) {
 
@@ -70,12 +139,6 @@ class Picker extends React.Component {
     render() {
 
         const defaults = {
-            selected: '',
-            placeholder: {
-                label: 'Seleccionar',
-                value: null,
-                color: 'transparent',
-            },
             android: {
                 useNativeAndroidPickerStyle: false,
             },
@@ -83,14 +146,27 @@ class Picker extends React.Component {
                 doneText: 'Terminar'
             },
         }
-
+        
         const options = Object.assign(defaults, this.props.options)
 
-        console.log('options', options)
+        let type
 
-        const items = this.props.items || []
+        if (typeof this.props.type === 'String') {
 
-        const pickerStyles = this.getStyles(this.props.type)
+            type = this.props.type
+        } else if (typeof this.props.type === 'object') {
+
+            type = this.props.type[Platform.OS]
+        }
+
+        const pickerStyles = this.getStyles(type)
+
+        const {
+            selected,
+            androidSelected,
+            items,
+            placeholder,
+        } = this.state
 
         return(
             <>
@@ -98,13 +174,13 @@ class Picker extends React.Component {
                     {
                         'ios': (
                             <>
-                                <RNPickerSelect
-                                    pickerProps={options.pickerProps}
-                                    onValueChange={value => this.onItemSelected(value)}
-                                    items={items}
-                                    itemKey={options.selected}
-                                    Icon={() => {
-                                        return (
+                                {selected === undefined ? null : (
+                                    <RNPickerSelect
+                                        pickerProps={options.pickerProps}
+                                        onValueChange={value => this.onItemSelected(value)}
+                                        items={items}
+                                        itemKey={selected}
+                                        Icon={() => (
                                             <View
                                                 style={{
                                                     backgroundColor: "transparent",
@@ -118,59 +194,62 @@ class Picker extends React.Component {
                                                     height: 0
                                                 }}
                                             />
-                                        );
-                                    }}
-                                    placeholder={options.placeholder}
-                                    doneText={options.doneText}
-                                    style={pickerStyles}
-                                    ref={this._picker}
-                                />
+                                        )}
+                                        placeholder={placeholder}
+                                        doneText={options.ios.doneText}
+                                        style={pickerStyles}
+                                        ref={this._picker}
+                                    />
+                                )}
                             </>
                         ),
                         'android': (
-                            <View style={pickerStyles.headlessAndroidContainer}>
-                                <View style={pickerStyles.inputAndroidContainer}>
-                                    {
-                                        items.length == 0 ? null : (
-                                            <Text style={pickerStyles.inputAndroid}>
-                                                {items[this.state.selected.index].label}
-                                            </Text>
-                                        )
-                                    }
-
-                                    <View style={pickerStyles.iconContainer}></View>
-                                </View>
-                                <NativePicker
-                                    selectedValue={this.state.selected.value}
-                                    style={{
-                                        position: "absolute",
-                                        backgroundColor: "transparent",
-                                        margin: 0,
-                                        padding: 0,
-                                        color: "transparent",
-                                        top: 0,
-                                        bottom: 0,
-                                        left: 0,
-                                        right: 0
-                                    }}
-                                    onValueChange={(itemValue, itemIndex) =>
-                                        this.setState(
+                            <>
+                                {selected === undefined ? null : (
+                                    <View style={pickerStyles.headlessAndroidContainer}>
+                                        <View style={pickerStyles.inputAndroidContainer}>
                                             {
-                                                selected: {
-                                                    index: itemIndex,
-                                                    value: itemValue
-                                                }
-                                            },
-                                            this.onItemSelected(itemValue)
-                                        )
-                                    }
-                                    ref={c => (this._picker = c)}
-                                >
-                                    {items.map((item, i) => (
-                                        <NativePicker.Item key={i} label={item.label} value={item.value} />
-                                    ))}
-                                </NativePicker>
-                            </View>
+                                                items.length == 0 ? null : (
+                                                    <Text style={pickerStyles.inputAndroid}>
+                                                        {items[selected].label}
+                                                    </Text>
+                                                )
+                                            }
+
+                                            <View style={pickerStyles.iconContainer}></View>
+                                        </View>
+                                        <NativePicker
+                                            selectedValue={androidSelected}
+                                            style={{
+                                                position: "absolute",
+                                                backgroundColor: "transparent",
+                                                margin: 0,
+                                                padding: 0,
+                                                color: "transparent",
+                                                top: 0,
+                                                bottom: 0,
+                                                left: 0,
+                                                right: 0
+                                            }}
+                                            onValueChange={(itemValue, itemIndex) => {
+
+                                                this.setState(
+                                                    {
+                                                        selected: itemIndex,
+                                                        androidSelected: itemValue
+                                                    },
+                                                    this.onItemSelected(itemValue)
+                                                )
+                                            }}
+                                            ref={c => (this._picker = c)}
+                                        >
+                                            {items.map(item => (
+                                                <NativePicker.Item key={item.key} label={item.label} value={item.value} />
+                                            ))}
+                                        </NativePicker>
+                                    </View>
+                                )}
+                            </>
                         )
                     }[Platform.OS]
                 }
