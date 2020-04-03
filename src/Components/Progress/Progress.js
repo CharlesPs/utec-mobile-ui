@@ -13,9 +13,7 @@ const Progress = (props) => {
     const size = props.size ? props.size : 'large'
     const color = props.color ? props.color : Colors.textGeneral
     
-    const style = props.style ? props.style : {
-        backgroundColor: 'red',
-    }
+    const style = props.style ? props.style : {}
     
     return (
         <View style={style}>
