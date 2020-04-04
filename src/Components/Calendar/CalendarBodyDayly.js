@@ -59,8 +59,6 @@ const CalendarBodyDayly = (props) => {
 
         const diff = moment.unix(event.startsAt).diff(startMoment, 'minutes')
 
-        console.log(startString, moment.unix(event.startsAt).format('YYYY-MM-DD HH:mm:ss'))
-
         return (diff * hourHeight / 60)
     }
 
