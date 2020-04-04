@@ -1,6 +1,7 @@
 
 import Alert from './src/Components/Alert/Alert'
 import Button from './src/Components/Button/Button'
+import Calendar from './src/Components/Calendar/Calendar'
 import Loader from './src/Components/Loader/Loader'
 import MenuButton from './src/Components/MenuButton/MenuButton'
 import NavBar from './src/Components/Navbar/NavBar'
@@ -10,6 +11,7 @@ import Progress from './src/Components/Progress/Progress'
 export {
     Alert,
     Button,
+    Calendar,
     Loader,
     MenuButton,
     NavBar,
