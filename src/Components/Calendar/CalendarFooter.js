@@ -28,8 +28,8 @@ const CalendarFooter = (props) => {
                             style={styles.footerBtnIcon}
                             source={
                                 mode == 'MODE_DAYLY'
-                                ? require('../../Resources/Images/schedule_day_active.png')
-                                : require('../../Resources/Images/schedule_day_inactive.png')
+                                ? require('./images/schedule_day_active.png')
+                                : require('./images/schedule_day_inactive.png')
                             }
                         />
                         <Text style={mode == 'MODE_DAYLY' ? styles.text : [styles.text, { color: '#a3a3a3' }]}>{language.day}</Text>
@@ -43,8 +43,8 @@ const CalendarFooter = (props) => {
                             style={[styles.footerBtnIcon]}
                             source={
                                 mode == 'MODE_WEEKLY'
-                                ? require('../../Resources/Images/schedule_week_active.png')
-                                : require('../../Resources/Images/schedule_week_inactive.png')
+                                ? require('./images/schedule_week_active.png')
+                                : require('./images/schedule_week_inactive.png')
                             }
                         />
                         <Text style={mode == 'MODE_WEEKLY' ? [styles.text] : [styles.text, { color: '#a3a3a3' }]}>{language.week}</Text>
