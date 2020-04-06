@@ -1,6 +1,6 @@
 {
   "name": "utec-mobile-ui",
-  "version": "3.6.0",
+  "version": "3.7.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -16,9 +16,11 @@
   },
   "dependencies": {
     "moment": "^2.24.0",
-    "react-native-picker-select": "^6.6.0"
     "prop-types": "^15.7.2",
     "react": "16.11.0",
     "react-native": "^0.62.1",
+    "react-native-exif2": "^0.4.1",
+    "react-native-picker-select": "^6.6.0",
+    "rn-fetch-blob": "^0.12.0"
   }
 }
