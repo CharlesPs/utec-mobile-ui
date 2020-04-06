@@ -11,14 +11,10 @@
   "license": "ISC",
   "peerDependencies": {
     "prop-types": "^15.7.2",
-    "react": "16.11.0",
     "react-native": "^0.62.0"
   },
   "dependencies": {
     "moment": "^2.24.0",
-    "prop-types": "^15.7.2",
-    "react": "16.11.0",
-    "react-native": "^0.62.1",
     "react-native-picker-select": "^6.6.0"
   }
 }
