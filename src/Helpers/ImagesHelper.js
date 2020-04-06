@@ -1,29 +1,29 @@
 
-// import RNFetchBlob from "rn-fetch-blob"
-// import Exif from 'react-native-exif2'
+import RNFetchBlob from "rn-fetch-blob"
+import Exif from 'react-native-exif2'
 
 const getImageOrientation = async (imageUrl, imageName) => {
 
-    // const path = RNFetchBlob.fs.dirs.CacheDir + '_inmutable_images/' + imageName + '.jpg'
+    const path = RNFetchBlob.fs.dirs.CacheDir + '_inmutable_images/' + imageName + '.jpg'
 
-    // try {
+    try {
         
-    //     const exists = await RNFetchBlob.fs.exists(path)
+        const exists = await RNFetchBlob.fs.exists(path)
 
-    //     if (!exists) {
+        if (!exists) {
 
-    //         await RNFetchBlob.config({ path }).fetch('GET', imageUrl, {})
-    //     }
+            await RNFetchBlob.config({ path }).fetch('GET', imageUrl, {})
+        }
 
-    //     const msg = await Exif.getExif(path)
+        const msg = await Exif.getExif(path)
 
-    //     return msg.Orientation
-    // } catch (error) {
+        return msg.Orientation
+    } catch (error) {
         
-    //     console.log('ImagesHelper.getImageOrientation', error.message)
-    // }
+        console.log('ImagesHelper.getImageOrientation', error.message)
+    }
 
-    return 0
+    // return 0
 }
 
 export default {
