@@ -1,4 +1,9 @@
 
+// needs 
+// rn-fetch-blob@^0.12.0 
+// react-native-exif2@^0.4.1 
+// to be added
+
 import React, { useState } from 'react'
 
 import {
